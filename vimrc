@@ -28,6 +28,7 @@ Plug 'easymotion/vim-easymotion'          " easier cursor movement
 Plug 'preservim/nerdcommenter'            " easy commenting
 Plug 'raimondi/delimitmate'               " automatic closing of brackets, quotes, paranthesis etc
 Plug 'tpope/vim-fugitive'                 " git plugin
+Plug 'mbbill/undotree'                    " visualize undo branches
 
 "" Language
 
