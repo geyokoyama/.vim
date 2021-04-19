@@ -56,6 +56,27 @@ set smartcase               " override ignorecase when pattern contains uppercas
 set hlsearch                " search result is highlighted
 set incsearch               " incremental search
 
+"" Temporary Files
+" make sure folders exist
+if !isdirectory(expand('~/.vim/.backup'))
+  call mkdir(expand($HOME."/.vim/.backup"), "p")
+endif
+if !isdirectory(expand('~/.vim/.swap'))
+  call mkdir(expand($HOME."/.vim/.swap"), "p")
+endif
+if !isdirectory(expand('~/.vim/.undo'))
+  call mkdir(expand($HOME."/.vim/.undo"), "p", 0700)
+endif
+
+"" Path
+set backupdir=.backup,~/.vim/.backup//
+set directory=.swap,~/.vim/.swap//
+set undodir=.undo,~/.vim/.undo//
+
+"" Enable/disable options
+"set backup
+"set undofile
+
 " ----------------------------------------
 " PLUGIN CONFIGURATION
 " ----------------------------------------
@@ -87,16 +108,17 @@ let localleader=','
 " CUSTOM MAPPINGS
 " ----------------------------------------
 "" Normal Mode
-" edit vimrc
+" edit/source vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-" source vimrc
 nnoremap <leader>rv :source $MYVIMRC<cr>
-" open previous file
+
+" open previous file in vertical split
 nnoremap <leader>bb :execute "rightbelow vsplit " . bufname("#")<cr>
-" open netrw in current file directory
+
+" open netrw in current/working directory
 nnoremap <leader>dd :Lexplore %:p:h<cr>
-" open netrw in current working directory
 nnoremap <leader>da :Lexplore<cr>
+
 " <F5> removes all trailing whitespaces
 nnoremap <silent> <F5> :let _save_pos=getpos(".") <Bar>
   \:let _s=@/ <Bar>
@@ -109,7 +131,7 @@ nnoremap <silent> <F5> :let _save_pos=getpos(".") <Bar>
 
 "" Insert Mode
 " <esc> remap
-inoremap jk <esc><right>
+inoremap jk <esc>
 
 " ----------------------------------------
 " ABBREVIATIONS
