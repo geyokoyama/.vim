@@ -1,6 +1,6 @@
 " ****************************************
 " George Yokoyama <george_y@outlook.com>
-" https://georgeeyokoyama.github.io
+" https://geyokoyama.github.io
 " ****************************************
 
 " ----------------------------------------
